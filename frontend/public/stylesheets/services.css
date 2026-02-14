@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.content_container {
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  top: 0;
+  position: relative;
+  border: solid black;
+  overflow: hidden;
+
+}
+
+.button-hover:hover {
+   background: linear-gradient(240deg, #4ADEDE 8%, #000000 100%);
+}
+
+.content_container ul{
+
+
+
+}
+
+.content_container li{
+cursor: pointer;
+display: inline;
+width: 100%;
+border-color: black;
+border: solid;
+border-size: 1px;
+padding-right: 10px;
+padding-left: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+text-align: center;
+
+}
+
+.active {
+    background: black;
+    color: white;
+}
+
+.slider {
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex;
+  justify-content: center;
+}
+.slider__dot {
+  height: 0px;
+  margin: -2rem 80px;
+  width: 75px;
+  z-index: 10;
+  color: white;
+  background-color: #ccc;
+  outline: 8px solid #ccc;
+  outline-offset: -8px;
+  box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.slider__dot:checked {
+  background-color: #333;
+  -webkit-animation: check 0.5s linear forwards;
+          animation: check 0.5s linear forwards;
+}
+.slider__dot:checked:nth-of-type(1) ~ .slider__inner {
+  transform: translateX(0%);
+}
+.slider__dot:checked:nth-of-type(2) ~ .slider__inner {
+  transform: translateX(-50%);
+}
+
+.slider__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  transition: all 1s ease-out;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.slider__body {
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+.slider__image {
+  font-size: 2.7rem;
+  margin-bottom: 2rem;
+}
+.slider__caption {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.slider__text {
+  color: #999;
+  margin-bottom: 3rem;
+  max-width: 300px;
+}
+
+@-webkit-keyframes check {
+  50% {
+    outline-color: #333;
+    box-shadow: 0 0 0 16px #333, 0 0 0 48px rgba(51, 51, 51, 0.2);
+  }
+  100% {
+    outline-color: #333;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  }
+}
+
+@keyframes check {
+  50% {
+    outline-color: #333;
+    box-shadow: 0 0 0 16px #333, 0 0 0 48px rgba(51, 51, 51, 0.2);
+  }
+  100% {
+    outline-color: #333;
+    box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
+  }
+}

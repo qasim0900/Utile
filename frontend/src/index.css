@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply leading-normal tracking-normal text-white;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+}
+
+@layer components {
+  .gradient {
+    background: linear-gradient(240deg, #4ADEDE 8%, #000000 100%);
+  }
+}
