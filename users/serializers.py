@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from __future__ import unicode_literals
+
 from .models import CustomerProfile, ServiceProfile, AccountVerification,APIUser
 
 # -----------------------------------
@@ -36,7 +36,7 @@ class CustomerProfileSerializer(serializers.ModelSerializer):
     """
     
     def update(self, instance, validated_data):
-        for attr, value in validated_data.iteritems():
+        for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
         return instance
@@ -76,7 +76,7 @@ class ServiceProfileSerializer(serializers.ModelSerializer):
     """
     
     def update(self, instance, validated_data):
-        for attr, value in validated_data.iteritems():
+        for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
         return instance
@@ -130,7 +130,7 @@ class AccountVerificationSerializer(serializers.ModelSerializer):
     """
     
     def update(self, instance, validated_data):
-        for attr, value in validated_data.iteritems():
+        for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
         return instance

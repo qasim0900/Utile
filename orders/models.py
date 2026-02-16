@@ -1,7 +1,6 @@
 from django.db import models
 from users.models import APIUser
 from services.models import Product
-from django.contrib.gis.db import models as gis_models
 
 #-------------------------------
 # :: Basket Model Class
@@ -17,7 +16,6 @@ class Basket(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     longitude = models.FloatField(null=True, blank=True)
     latitude = models.FloatField(null=True, blank=True)
-    location = gis_models.PointField(null=True, blank=True)
     address = models.TextField(blank=True)
     requested_service = models.CharField(max_length=200, blank=True)
     status = models.CharField(max_length=50, default='pending')
@@ -55,7 +53,6 @@ class BasketItem(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     longitude = models.FloatField(null=True, blank=True)
     latitude = models.FloatField(null=True, blank=True)
-    location = gis_models.PointField(null=True, blank=True)
 
 
     #-------------------------------
