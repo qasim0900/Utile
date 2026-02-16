@@ -1,16 +1,65 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
-
 @import "tailwindcss";
+@import "tw-animate-css";
 
-@layer base {
-  body {
-    @apply leading-normal tracking-normal text-white;
-    font-family: 'Source Sans Pro', sans-serif;
-  }
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* UTILE Brand Colors based on Style Guide */
+  --color-brand-primary: hsl(171 66% 44%); /* Soft Teal #26BAA4 approx */
+  --color-brand-secondary: hsl(175 66% 40%); /* Brand 2nd */
+  --color-brand-success: hsl(150 60% 45%);
+  --color-brand-warning: hsl(45 90% 60%);
+  --color-brand-danger: hsl(0 75% 60%);
+  
+  --color-background: hsl(210 20% 98%); /* Light gray background for app */
+  --color-foreground: hsl(215 25% 27%); /* Dark slate text */
+  
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(215 25% 27%);
+  
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(215 25% 27%);
+  
+  --color-primary: hsl(171 66% 44%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  
+  --color-secondary: hsl(210 20% 96%); /* Muted secondary buttons */
+  --color-secondary-foreground: hsl(215 25% 27%);
+  
+  --color-muted: hsl(210 20% 96%);
+  --color-muted-foreground: hsl(215 16% 47%);
+  
+  --color-accent: hsl(171 66% 96%); /* Light teal tint */
+  --color-accent-foreground: hsl(171 66% 35%);
+  
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  
+  --color-border: hsl(214 32% 91%);
+  --color-input: hsl(214 32% 91%);
+  --color-ring: hsl(171 66% 44%);
+  
+  --color-chart-1: hsl(171 66% 44%);
+  --color-chart-2: hsl(215 25% 27%);
+  --color-chart-3: hsl(199 89% 48%);
+  --color-chart-4: hsl(45 90% 60%);
+  --color-chart-5: hsl(0 75% 60%);
+  
+  --radius: 0.75rem; /* Rounded corners */
+  
+  --font-sans: "Inter", sans-serif;
 }
 
-@layer components {
-  .gradient {
-    background: linear-gradient(240deg, #4ADEDE 8%, #000000 100%);
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
   }
 }

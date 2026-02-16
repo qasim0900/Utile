@@ -1,48 +1,30 @@
-import React, { Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import { ROUTES } from '@constants/index'
-import { AppLayout } from '@layouts/AppLayout'
-import { HomePage, LoginPage, ServicesPage, NotFoundPage } from '@pages/index'
+import { Switch, Route } from "wouter";
+import { queryClient } from "./lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import NotFound from "@/pages/not-found";
+import Home from "@/pages/home";
+import ProviderDashboard from "@/pages/provider-dashboard";
+import JobPool from "@/pages/job-pool";
 
-export const App: React.FC = () => {
+function Router() {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
-      <Routes>
-        <Route
-          path={ROUTES.HOME}
-          element={
-            <AppLayout>
-              <HomePage />
-            </AppLayout>
-          }
-        />
-        <Route
-          path={ROUTES.SERVICES}
-          element={
-            <AppLayout>
-              <ServicesPage />
-            </AppLayout>
-          }
-        />
-        <Route
-          path={ROUTES.LOGIN}
-          element={
-            <AppLayout showFooter={false}>
-              <LoginPage />
-            </AppLayout>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <AppLayout>
-              <NotFoundPage />
-            </AppLayout>
-          }
-        />
-      </Routes>
-    </Suspense>
-  )
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/provider" component={ProviderDashboard} />
+      <Route path="/provider/jobs" component={JobPool} />
+      <Route component={NotFound} />
+    </Switch>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Toaster />
+      <Router />
+    </QueryClientProvider>
+  );
+}
+
+export default App;
