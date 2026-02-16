@@ -1,10 +1,10 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import Layout from './components/Layout';
-import Home from './pages/Home';
+import Home from './pages/home';
+import './index.css';
 
 const theme = createTheme({
   palette: {
